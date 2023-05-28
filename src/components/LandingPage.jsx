@@ -1,9 +1,10 @@
 import React from "react";
 import "./landingPage.css";
+import backgroundImage from "../backgroundImage.jpg";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="landing-page-container">
       <header>
         <a href="#" className="logo">
           TravelTalk
@@ -26,6 +27,16 @@ const LandingPage = () => {
 
         <div className="bx bx-menu" id="menu-icon"></div>
       </header>
+
+      <div className="quote-container">
+        <h1 className="quote-text">
+          "Travel is the only thing you can buy that makes you richer."
+        </h1>
+        <div className="buttons-container">
+          <button className="button">Explore</button>
+          <button className="button">Learn More</button>
+        </div>
+      </div>
     </div>
   );
 };
