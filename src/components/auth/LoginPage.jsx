@@ -5,6 +5,9 @@ import { auth } from "../../firebase";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [location, setLocation] = useState("");
+  const [interest1, setInterest1] = useState("");
+  const [signUpView, setSignUpView] = useState(false);
 
   const signIn = (a) => {
     a.preventDefault();
@@ -33,7 +36,31 @@ const SignIn = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         ></input>
-        <button type="submit">Log In</button>
+        {signUpView ? (
+          <div>
+            <input
+              type="Location"
+              placeholder="Enter your location (city)"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            ></input>
+            <input
+              type="Interest"
+              placeholder="Interest 1"
+              value={interest1}
+              onChange={(e) => setInterest1(e.target.value)}
+            ></input>
+            <button type="submit">Submit</button>
+          </div>
+        ) : (
+          <div>
+            <button type="submit">Log In</button>
+            <text>or</text>
+            <button type="button" onClick={() => setSignUpView(true)}>
+              Sign up
+            </button>
+          </div>
+        )}
       </form>
     </div>
   );
