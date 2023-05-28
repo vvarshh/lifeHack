@@ -1,15 +1,15 @@
-<<<<<<< HEAD
-=======
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
->>>>>>> 620e95722c1cab52cb9d606df9ce973134c47bc8
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useState } from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
-import { TextField, Button, Typography, Container } from "@mui/material";
+import { TextField, Button, Typography } from "@mui/material";
 import "./loginPage.css";
-// import loginVid from "./loginVid.mp4";
+import loginImage from "../../backgroundImage.jpg";
+import loginVid from "../auth/loginVid.mp4";
 
-const SignIn = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -42,14 +42,14 @@ const SignIn = () => {
       .then((userCredential) => {
         console.log(userCredential);
         const user = userCredential.user;
-      // Update the user's profile with additional information
-      user.updateProfile({
-        location: location,
-        interest1: selectedOption1,
-        interest2: selectedOption2,
-        interest3: selectedOption3
-      });
-      console.log('User signed up and profile updated successfully:', user);
+        // Update the user's profile with additional information
+        user.updateProfile({
+          location: location,
+          interest1: selectedOption1,
+          interest2: selectedOption2,
+          interest3: selectedOption3,
+        });
+        console.log("User signed up and profile updated successfully:", user);
       })
       .catch((error) => {
         console.log(error);
@@ -57,105 +57,92 @@ const SignIn = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="login-page-container">
-      <div className="video-container">
-        {/* <video src={loginVid} controls autoPlay loop /> */}
+      <div className="left-section">
+        <div className="video-container">
+          <video
+            src={loginVid}
+            autoPlay
+            muted
+            loop
+            className="background-video"
+          />
+          <div className="text-overlay">
+            <h2 className="video-text">Travel Talk</h2>
+            <br></br>
+            <h4>
+              <i>Where your journey begins</i>
+            </h4>
+          </div>
+        </div>
       </div>
-      <Container maxWidth="sm" className="login-form-container">
-        <Typography variant="h4" align="center" gutterBottom>
-          Log In to your Account
-        </Typography>
-        <form onSubmit={signIn}>
-          <TextField
-            type="email"
-            label="Email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <TextField
-            type="password"
-            label="Password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            fullWidth
-            margin="normal"
-            required
-          />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Log In
-          </Button>
-        </form>
-      </Container>
-=======
-    <div className="sign-in-container">
-      <form onSubmit={signUpView ? signUp : signIn}>
-        <h1>Log In to your Account</h1>
-        <input
-          type="email"
-          placeholder="Enter your email"
-          value={email}
-          required="true"
-          onChange={(e) => setEmail(e.target.value)}
-        ></input>
-        <input
-          type="password"
-          placeholder="Enter your password"
-          value={password}
-          required="true"
-          onChange={(e) => setPassword(e.target.value)}
-        ></input>
-        {signUpView ? (
-          <div>
-            <input
+      <div className="login-form-container">
+        <div className="right-section">
+          <form onSubmit={signUpView ? signUp : signIn}>
+            <TextField
+              type="email"
+              label="Email"
+              value={email}
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
               type="password"
-              placeholder="Enter your password again"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            ></input>
-            <input
-              type="Location"
-              placeholder="Enter your location (city)"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            ></input>
-            <DropdownMenu
-              selectedOption={selectedOption1}
-              setSelectedOption={setSelectedOption1}
+              label="Password"
+              value={password}
+              required
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <DropdownMenu
-              selectedOption={selectedOption2}
-              setSelectedOption={setSelectedOption2}
-            />
-            <DropdownMenu
-              selectedOption={selectedOption3}
-              setSelectedOption={setSelectedOption3}
-            />
-            <button type="submit">Sign Up</button>
-          </div>
-        ) : (
-          <div>
-            <button type="submit">Log In</button>
-            <text>or</text>
-            <button type="button" onClick={() => setSignUpView(true)}>
-              Create Account
-            </button>
-          </div>
-        )}
-      </form>
->>>>>>> 620e95722c1cab52cb9d606df9ce973134c47bc8
+            {signUpView && (
+              <>
+                <TextField
+                  type="password"
+                  label="Confirm Password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <TextField
+                  type="text"
+                  label="Location"
+                  value={location}
+                  onChange={(e) => setLocation(e.target.value)}
+                />
+                <DropdownMenu
+                  selectedOption={selectedOption1}
+                  setSelectedOption={setSelectedOption1}
+                />
+                <DropdownMenu
+                  selectedOption={selectedOption2}
+                  setSelectedOption={setSelectedOption2}
+                />
+                <DropdownMenu
+                  selectedOption={selectedOption3}
+                  setSelectedOption={setSelectedOption3}
+                />
+                <Button variant="contained" type="submit">
+                  Sign Up
+                </Button>
+              </>
+            )}
+            {!signUpView && (
+              <>
+                <Button variant="contained" type="submit">
+                  Log In
+                </Button>
+                <Typography>or</Typography>
+                <Button variant="contained" onClick={() => setSignUpView(true)}>
+                  Create Account
+                </Button>
+              </>
+            )}
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default SignIn;
-<<<<<<< HEAD
-=======
+export default LoginPage;
 
 const DropdownMenu = ({ selectedOption, setSelectedOption }) => {
   const handleSelectChange = (event) => {
@@ -174,4 +161,3 @@ const DropdownMenu = ({ selectedOption, setSelectedOption }) => {
     </div>
   );
 };
->>>>>>> 620e95722c1cab52cb9d606df9ce973134c47bc8

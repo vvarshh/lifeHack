@@ -3,6 +3,8 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginPage from '../src/components/auth/LoginPage';
 import LandingPage from '../src/components/LandingPage';
+import LocalPage from './components/LocalPage';
+import TouristPage from './components/TouristPage';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/home" element={<LandingPage />} />
+          <Route path="/home/local" element={<LocalPage />} />
+          <Route path="/home/tourist" element={<TouristPage />} />
         </Routes>
       </BrowserRouter>
     </div>
