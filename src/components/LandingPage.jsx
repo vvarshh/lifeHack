@@ -1,14 +1,15 @@
 import React from "react";
+import "./landingPage.css";
 
 const LandingPage = () => {
   return (
     <div>
       <header>
-        <a href="#" class="logo">
+        <a href="#" className="logo">
           TravelTalk
         </a>
 
-        <ul class="navlist">
+        <ul className="navlist">
           <li>
             <a href="#">Home</a>
           </li>
@@ -23,7 +24,7 @@ const LandingPage = () => {
           </li>
         </ul>
 
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <div className="bx bx-menu" id="menu-icon"></div>
       </header>
     </div>
   );
