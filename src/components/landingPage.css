@@ -54,6 +54,8 @@ header {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  background: url("../backgroundImage.jpg") no-repeat fixed center center;
+  opacity: 90%;
 }
 
 .background-image-container img {

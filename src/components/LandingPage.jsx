@@ -3,7 +3,7 @@ import "./landingPage.css";
 
 const LandingPage = () => {
   return (
-    <div className="background">
+    <div className="background-image-container">
       <div className="landing-page-container">
         <header>
           <a href="#" className="logo">

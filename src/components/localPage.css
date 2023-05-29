@@ -12,7 +12,10 @@
   padding: 20px;
   max-width: 300px;
   text-align: center;
-  display: none; /* Hide all cards by default */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .person-image {
@@ -33,22 +36,29 @@
   margin-bottom: 10px;
 }
 
+.card > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
 .card.active {
-  display: block; /* Display the active card */
-  border: 2px solid #4287f5; /* Border color for active card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Box shadow for active card */
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
 }
 
 .card.active .person-image {
-  border: 4px solid #4287f5; /* Border color for the person image on the active card */
+  border: 4px solid #4287f5;
 }
 
 .card.active .person-name {
-  color: #4287f5; /* Text color for the person name on the active card */
-  font-weight: bold; /* Bold font weight for the person name on the active card */
+  color: #4287f5;
+  font-weight: bold;
 }
 
 .card.active .person-details {
-  color: #4287f5; /* Text color for the person details on the active card */
+  color: #4287f5;
 }
-
