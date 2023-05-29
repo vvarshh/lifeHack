@@ -1,7 +1,5 @@
 import { auth } from "../../firebase";
-import "./App.css";
-import { useAuthState } from "react-firebase-hooks/auth";
-
+import React from "react";
 
 function ChatPage() {
     
