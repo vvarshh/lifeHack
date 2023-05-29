@@ -70,7 +70,7 @@ header {
 }
 
 .navlist a {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     margin-left: 60px;
     font-size: 15px;
     font-weight: 600;
@@ -79,5 +79,5 @@ header {
 }
 
 .navlist a:hover {
-    border-bottom: 2px solid rgb(85, 85, 85);
+    border-bottom: 2px solid rgb(137, 119, 119);
 }
