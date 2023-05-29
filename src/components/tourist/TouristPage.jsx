@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import TinderCard from 'react-tinder-card';
 import './touristPage.css';
 
 const TouristPage = () => {
