@@ -1,94 +1,59 @@
-/* landingPage.css */
-body {
-    margin: 0;
-    padding: 0;
-    opacity: 80%;
-    background-size: cover;
-}
-
-/* Header styles */
-header {
-    background: transparent;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    text-decoration: none;
-    margin-left: auto;
-    margin-right: 600px;
-    font-size: 32px;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.navlist {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin-left: auto; /* Add this line to move the navlist to the right */
-}
-
-.navlist li a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-}
-
-.bx-menu {
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-}
-
-/* Add more styles as needed */
-.landing-page-container {
-    position: relative;
-}
-
-.background-image-container {
-    position: absolute;
-    top: 0;
-    left: 0;
+.page-container {
+    background-color: #d4c2e6;
+    min-height: 100vh;
     width: 100%;
-    height: 100vh;
-    z-index: -1;
-    background: url('./backgroundImage.jpg') no-repeat fixed center center;
-    opacity: 90%;
-}
-
-.background-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.quote-container {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
-.quote-text {
+.carousel {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    margin-bottom: 200px; /* Adjust the negative margin as needed */
+    margin-right: 290px;
+}
+
+.card {
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
     text-align: center;
-    color: white;
-    font-size: 28px;
-    margin-bottom: 20px;
+    z-index: 1;
 }
 
-.buttons-container {
-    display: flex;
-    gap: 20px;
+.card h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-.button {
-    padding: 10px 20px;
-    background-color: #627aa1;
-    color: rgb(255, 255, 255);
+.card p {
+    margin-bottom: 10px;
+}
+
+.action-text {
+    margin-top: 20px;
+    text-align: center;
+    z-index: 2;
+}
+
+.action-text p {
+    margin-bottom: 10px;
+}
+
+.undo-button {
+    padding: 8px 16px;
+    background-color: #ff3860;
+    color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 16px;

@@ -63,20 +63,23 @@ const LocalPage = () => {
         }
     };
 
+    const remainingCards = people.filter(person => {
+        const isSwiped = swipedCards.some(swipedCard => swipedCard.name === person.name);
+        return !isSwiped;
+    });
+
     return (
         <div className="page-container">
             <div className="carousel">
-                {people.map((person, index) => (
-                    <TinderCard
-                        key={index}
-                        onSwipe={dir => swiped(dir, person)}
-                        onCardLeftScreen={() => outOfFrame(person)}
-                        onCardRightScreen={() => outOfFrame(person)}
-                        preventSwipe={['up', 'down']} // Disable vertical swiping
-                        className="swipe"
-                    >
-                        <div className={`card ${index === 0 ? 'active' : index === 1 ? 'inactive' : ''}`}>
-                            <img src={person.imageUrl} alt="Image" className="person-image" />
+                {remainingCards.map((person, index) => (
+                    <TinderCard key={index} onSwipe={dir => swiped(dir, person)} onCardLeftScreen={() => outOfFrame(person)} preventSwipe={['up', 'down']} className="swipe">
+                        <div
+                            style={{
+                                backgroundImage: `url(${person.imageUrl})`,
+                                backgroundSize: 'cover'
+                            }}
+                            className="card"
+                        >
                             <h2 className="person-name">{person.name}</h2>
                             <p className="person-details">Age: {person.age}</p>
                             <p className="person-details">Location: {person.location}</p>
